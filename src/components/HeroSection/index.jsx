@@ -1,0 +1,41 @@
+import React from 'react';
+
+export function HeroSection() {
+    return (
+        <div>
+            <div className='flex items-center justify-around'>
+                <div>Swiggy</div>
+                <div>
+                    <ul className='flex items-center justify-around w-[130%]'>
+                        <li>Swiggy Corporate</li>
+                        <li>Partner with us</li>
+                        <li>Get the app</li>
+                        <li>Sign up</li>
+                    </ul>
+                </div>
+            </div>
+            <h1>Order food & groceries. Discover best restaurants. Swiggy it!</h1>
+            <div className='flex items-center justify-around'>
+                <div className='flex items-center justify-around w-[302px] h-[58] rounded-xl'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 23" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.115 21.8122C12.4772 19.4062 17.7886 13.4751 17.7886 8.78883C17.7886 3.79647 13.9976 0 9.00526 0C4.0129 0 0.210938 3.79647 0.210938 8.78883C0.210938 13.4755 5.52998 19.4073 7.89476 21.8129C8.51149 22.4403 9.49871 22.44 10.115 21.8122ZM8.99988 12.7888C11.4269 12.7888 13.3943 10.8214 13.3943 8.39441C13.3943 5.96745 11.4269 4 8.99988 4C6.57292 4 4.60547 5.96745 4.60547 8.39441C4.60547 10.8214 6.57292 12.7888 8.99988 12.7888Z" fill="#FF5200"></path></svg>
+                    <input placeholder='Enter your delivery location ' className='h-[58px] w-[204px]'></input>
+                    <svg width="20" height="21" viewBox="0 0 20 21" fill="none" aria-label="rating-down-down-icon" aria-hidden="false" strokecolor="rgba(2, 6, 12, 0.92)" fillcolor="rgba(2, 6, 12, 0.92)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.372 6.15a1.1 1.1 0 0 0-.117 1.552l7.184 8.355.03.035c.149.173.327.381.504.536.212.186.564.427 1.058.427s.847-.24 1.059-.427c.177-.155.355-.363.504-.536l.03-.035 7.12-8.282a1.1 1.1 0 0 0-1.668-1.434l-7.045 8.194-7.108-8.267a1.1 1.1 0 0 0-1.55-.117" fill="rgba(2, 6, 12, 0.92)" fill-opacity="0.92"></path></svg>
+                </div>
+                <div className='flex items-center justify-around rounded-xl'>
+                    <input placeholder='Search for restaurant, item or more ' className='h-[58px] w-[290px]'></input>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 16 16">
+                        <path d="M13.438,15.563l-2.665-2.664	C9.684,13.598,8.388,14.002,7,14.002c-3.865,0-7-3.135-7-7c0-3.864,3.135-7,7-7c3.864,0,7,3.136,7,7	c0,1.391-0.407,2.687-1.105,3.776l2.665,2.664c0.585,0.585,0.585,1.536,0,2.121C14.974,16.148,14.024,16.148,13.438,15.563z M12,7.002c0-2.759-2.241-5-5-5c-2.76,0-5,2.241-5,5c0,2.76,2.24,5,5,5C9.759,12.002,12,9.762,12,7.002z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div className='flex items-center justify-evenly'>
+                <div>Food delivery</div>
+                <div>Instamart</div>
+                <div>Dineout</div>
+            </div>
+        </div>
+
+    );
+}
+
+
