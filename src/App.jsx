@@ -1,9 +1,13 @@
 import './App.css'
-import { HeroSection } from './components/heroSection'
+import BestFood from './components/bestFood'
+import HeroSection from './components/heroSection'
 
 
   export default function App() {
   return (
-   <HeroSection/>
+    <>
+    <HeroSection/>
+    <BestFood/>
+    </>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function HeroSection() {
+export default function HeroSection() {
     return (
         <div className='bg-[#FF5200]'>
             <div className='pt-[30px] w-full'></div>
@@ -26,7 +26,7 @@ export function HeroSection() {
                         <input placeholder='Enter your delivery location ' className='h-[58px] w-[204px]'></input>
                         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" aria-label="rating-down-down-icon" aria-hidden="false" strokecolor="rgba(2, 6, 12, 0.92)" fillcolor="rgba(2, 6, 12, 0.92)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.372 6.15a1.1 1.1 0 0 0-.117 1.552l7.184 8.355.03.035c.149.173.327.381.504.536.212.186.564.427 1.058.427s.847-.24 1.059-.427c.177-.155.355-.363.504-.536l.03-.035 7.12-8.282a1.1 1.1 0 0 0-1.668-1.434l-7.045 8.194-7.108-8.267a1.1 1.1 0 0 0-1.55-.117" fill="rgba(2, 6, 12, 0.92)" fill-opacity="0.92"></path></svg>
                     </div>
-                    <div className='flex items-center justify-around rounded-xl bg-white px-4 mr-1'>
+                    <div className='flex items-center justify-around rounded-xl bg-white px-4 ml-2'>
                         <input placeholder='Search for restaurant, item or more ' className='h-[58px] w-[290px] flex-1 rounded-xl border-none outline-none'></input>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 16 16">
                             <path d="M13.438,15.563l-2.665-2.664	C9.684,13.598,8.388,14.002,7,14.002c-3.865,0-7-3.135-7-7c0-3.864,3.135-7,7-7c3.864,0,7,3.136,7,7	c0,1.391-0.407,2.687-1.105,3.776l2.665,2.664c0.585,0.585,0.585,1.536,0,2.121C14.974,16.148,14.024,16.148,13.438,15.563z M12,7.002c0-2.759-2.241-5-5-5c-2.76,0-5,2.241-5,5c0,2.76,2.24,5,5,5C9.759,12.002,12,9.762,12,7.002z"></path>
@@ -35,7 +35,7 @@ export function HeroSection() {
                 </div>
                 <img className='h-[450px] w-[250px] absolute top-0 right-0' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png'></img>
             </div>
-            <div className='flex items-center justify-center flex-nowrap w-full max-w-[80%] min-h-[320px] px-2 pb-5'>
+            <div className='flex items-center justify-center flex-nowrap w-full max-w-[80%] min-h-[320px] px-2 pb-5 mx-auto'>
                 <div>
                     <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/ec86a309-9b06-48e2-9adc-35753f06bc0a_Food3BU.png' alt='Food delivery'></img></div>
                 <div>
