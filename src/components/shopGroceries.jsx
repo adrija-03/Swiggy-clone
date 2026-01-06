@@ -1,4 +1,5 @@
 import React from 'react'
+import ScrollableItems from './scrollableItems';
 
 const row1 = [
     {
@@ -81,23 +82,10 @@ const ShopGroceries = () => {
                     </div>
                 </div>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto no-scrollbar">
                 <div className="flex flex-col gap-6 min-w-max">
-
-                    <div className="flex flex-nowrap gap-6">
-                        {row1.map((item, index) => (
-                            <div className='flex flex-col items-center'>
-                                <button key={index} className="shrink-0">
-                                    <img
-                                        className="w-36 h-auto hover:scale-105 transition-transform"
-                                        src={`${item.link}`}
-                                        alt={item.name}
-                                    />
-                                </button>
-                                <div className='pt-[14px] font-semibold text-[20px] leading-[24px] tracking-[-0.5px] text-center text-[rgba(2,6,12,0.75)]'>{item.name}</div>
-                            </div>
-                        ))}
-                    </div>
+                    <ScrollableItems
+                    list = {row1}/>
                 </div>
             </div>
         </div>
