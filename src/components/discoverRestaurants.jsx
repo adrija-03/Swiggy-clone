@@ -4,35 +4,61 @@ import ScrollableItems from './scrollableItems'
 const row1 = [
 
     {
-        imageLink : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/12/11/7293a378-a88e-48cf-b451-da8d3ad31cb0_image2756e6ced814cb42a387a7ed400dfc19d9.JPG",
-        restaurantName : "Haveli Dharampura",
-        restaurantRatings : "4.1",
+        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/12/11/7293a378-a88e-48cf-b451-da8d3ad31cb0_image2756e6ced814cb42a387a7ed400dfc19d9.JPG",
+        restaurantName: "Haveli Dharampura",
+        restaurantRatings: "4.1",
+        foodType: "North Indian",
+        foodOrigin: "Mughlai",
+        approxAmount: "4000",
+        location: "Chandni Chowk, Delhi",
+        distance: "3.6",
+
     },
     {
-        imageLink : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/7/29/a5aba697-125e-4a72-b4bd-af748918e581_SwiggyDineout1080X7202c612ffceb9194372adfb1c18bbdce57e.PNG",
-        restaurantName : "Wow! Momo",
-        restaurantRatings : "4.5",
+        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/7/29/a5aba697-125e-4a72-b4bd-af748918e581_SwiggyDineout1080X7202c612ffceb9194372adfb1c18bbdce57e.PNG",
+        restaurantName: "Wow! Momo",
+        restaurantRatings: "4.5",
+        foodType: "Chinese",
+        foodOrigin: "Asian",
+        approxAmount: "400",
+        location: "IRCTC Food Plaza, Ajmeri Gate, Delhi",
+        distance: "2",
     },
     {
-        imageLink : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1667811837/univpvf3s8fd2asohxtv.jpg",
-        restaurantName : "Oval Bean Cafe",
-        restaurantRatings : "4.3",
+        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1667811837/univpvf3s8fd2asohxtv.jpg",
+        restaurantName: "Oval Bean Cafe",
+        restaurantRatings: "4.3",
+        foodType: "Fast Food",
+        foodOrigin: "Beverages",
+        approxAmount: "600",
+        location: "Connaught Place, Delhi",
+        distance: "0.3",
     },
     {
-        imageLink : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/11/27/23400271-2db1-4640-af7d-d47569365c75_image132bd1ab082dc4617a0b77c7c10dfc1af.JPG",
-        restaurantName : "Dyve",
-        restaurantRatings : "4.5",
+        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/11/27/23400271-2db1-4640-af7d-d47569365c75_image132bd1ab082dc4617a0b77c7c10dfc1af.JPG",
+        restaurantName: "Dyve",
+        restaurantRatings: "4.5",
+        foodType: "North Indian",
+        foodOrigin: "Chinese",
+        approxAmount: "1200",
+        location: "Preet Vihar, Delhi",
+        distance: "9.1",
     },
     {
-        imageLink : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1705324002/614ce1258b980d7aad88fdaad47882ef.jpg",
-        restaurantName : "F Bar & Lounge",
-        restaurantRatings : "4.0",
+        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1705324002/614ce1258b980d7aad88fdaad47882ef.jpg",
+        restaurantName: "F Bar & Lounge",
+        restaurantRatings: "4.0",
+        foodType: "Chinese",
+        foodOrigin: "North Indian",
+        approxAmount: "2700",
+        location: "Rajinder Nagar, Delhi",
+        distance: "1.4",
     }
 ]
 
 const DiscoverRestaurants = () => {
-  return (
-    <div className='w-[80%] mx-auto'>
+    return (
+        <div className='w-[80%] mx-auto'>
             <div className='flex justify-between items-center mt-32'>
                 <div className='text-2xl font-bold tracking-tight '>Shop groceries on Instamart</div>
                 <div className='flex'>
@@ -83,13 +109,49 @@ const DiscoverRestaurants = () => {
                                         <span className='text-[16px]'>{item.restaurantRatings}</span>
                                     </div>
                                 </div>
+                                <div className='shadow-md'>
+                                    <div className='text-[13px] text-[rgba(2,6,12,0.6)] font-medium px-3'>
+                                        <div className='flex justify-between items-center'>
+                                            <div><span>{item.foodType}</span> <span>&middot;</span> <span>{item.foodOrigin}</span></div>
+                                            <div>{item.approxAmount} for two</div>
+                                        </div>
+                                        <div className='flex justify-between items-center'>
+                                            <div>{item.location}</div>
+                                            <div>{item.distance} km</div>
+                                        </div>
+                                    </div>
+                                    <div className='px-3 mt-3'>
+                                        <div className='flex items-center justify-start gap-0.5 rounded-xl bg-[#f0f0f5] w-[115px] px-2 py-0.5'>
+                                            <div className='w-3 h-3'>
+                                                <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/highlights/book.png'></img>
+                                            </div>
+                                            <div className='text-[13px] text-[rgba(2,6,12,0.6)] font-medium'>Table booking</div>
+                                        </div>
+                                    </div>
+                                    <div className='px-3 mt-3'>
+                                        <div className='flex items-center justify-start gap-0.5 rounded-lg bg-[#1BA672] h-9 px-2 py-0.5'>
+                                            <div className='w-6 h-6'>
+                                                <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/OFFER.png'></img>
+                                            </div>
+                                            <div className='text-[16px] text-[#ffffff] font-semibold'>15% off on pre-booking</div>
+                                        </div>
+                                    </div>
+                                    <div className='px-3 mt-3'>
+                                        <div className='flex items-center justify-start gap-0.5 rounded-lg bg-[#C8f9e5] h-9 px-2 py-0.5'>
+                                            <div className='w-3 h-3'>
+                                                <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/highlights/book.png'></img>
+                                            </div>
+                                            <div className='text-[16px] text-[#1BA672] font-semibold'>Up to 10% off with bank offers</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
         </div>
-  )
+    )
 }
 
 export default DiscoverRestaurants
