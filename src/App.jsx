@@ -7,6 +7,7 @@ import DiscoverRestaurants from './components/discoverRestaurants'
 import GetTheApp from './components/getTheApp'
 import HeroSection from './components/heroSection'
 import ShopGroceries from './components/shopGroceries'
+import Footer from './components/footer'
 
 
   export default function App() {
@@ -19,6 +20,7 @@ import ShopGroceries from './components/shopGroceries'
     <GetTheApp/>
     <CitiesFoodDelivery/>
     <CitiesGroceryDelivery/>
+    <Footer/>
     </>
   )
 }
