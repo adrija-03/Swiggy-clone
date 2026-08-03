@@ -1,23 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import LoginPage from '../LoginDrawer/LoginDrawer';
+import LoginDrawer from '../LoginDrawer/LoginDrawer';
 
 export default function HeroSection() {
+
+    const [showLogin, setShowLogin] = useState(false)
+
     return (
         <div className='bg-[#FF5200]'>
             <div className='pt-[30px] w-full'></div>
             <div className='flex items-center justify-around'>
-                <div className='w-[160px] h-[48px]'>
-                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png' alt='Swiggy'></img></div>
+                <Link
+                    className='w-[160px] h-[48px]'
+                    to='/'>
+                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png' alt='Swiggy'>
+                    </img>
+                </Link>
                 <div>
-                    <div className='flex items-center justify-around w-[130%] text-white font-[Inter] text-[16px] font-semibold leading-[21px] tracking-[-0.4px] cursor-pointer z-[10000]'>
-                        <div>Swiggy Corporate</div>
-                        <div>Partner with us</div>
-                        <div class="border border-solid p-[15px] rounded-[12px] flex gap-1">
+                    <div className='flex items-center justify-around w-[130%] text-white font-[Inter] text-[16px] font-semibold leading-[21px] tracking-[-0.4px] z-[10000]'>
+                        <Link
+                            className='cursor-pointer'
+                            to="/corporate"
+                        >
+                            Swiggy Corporate
+                        </Link>
+                        <div className='cursor-pointer'>Partner with us</div>
+                        <div class="border border-solid p-[15px] rounded-[12px] flex gap-1 cursor-pointer">
                             <div>Get the app</div>
                             <div className="-rotate-45">
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" aria-label="rating-up-down-icon" aria-hidden="false" strokecolor="#FFFFFF" fillcolor="#FFFFFF"><path d="M12.634 3.45a1 1 0 0 0-1.365 1.462l4.827 4.506c.238.221.44.41.614.577H2.996a1 1 0 0 0 0 2h13.777c-.186.18-.41.39-.677.64l-4.769 4.45a1 1 0 0 0 1.365 1.462l4.817-4.495c.546-.51 1.03-.96 1.367-1.376.365-.449.664-.979.664-1.65 0-.672-.299-1.201-.664-1.65-.338-.415-.821-.866-1.367-1.376z" fill="#FFFFFF" fill-opacity="0.92"></path></svg>
                             </div>
                         </div>
-                        <div class="bg-black rounded-[16px] p-[15px]">Sign up</div>
+                        <div
+                            className="bg-black rounded-[16px] p-[15px] cursor-pointer"
+                            onClick={() => setShowLogin(true)}
+                        >
+                            Sign up
+                        </div>
+                        {showLogin && (
+                            <LoginDrawer closeDrawer={() => setShowLogin(false)} />
+                        )}
                     </div>
                 </div>
             </div>
@@ -41,12 +64,18 @@ export default function HeroSection() {
                 <img className='h-[450px] w-[250px] absolute top-0 right-0' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png'></img>
             </div>
             <div className='flex items-center justify-center flex-nowrap w-full max-w-[80%] min-h-[320px] px-2 pb-5 mx-auto'>
-                <div>
-                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/ec86a309-9b06-48e2-9adc-35753f06bc0a_Food3BU.png' alt='Food delivery'></img></div>
-                <div>
-                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b5c57bbf-df54-4dad-95d1-62e3a7a8424d_IM3BU.png' alt='Instamart'></img></div>
-                <div>
-                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b6d9b7ab-91c7-4f72-9bf2-fcd4ceec3537_DO3BU.png' alt='Dineout'></img></div>
+                <Link to='/restaurants'>
+                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/ec86a309-9b06-48e2-9adc-35753f06bc0a_Food3BU.png' alt='Food delivery'>
+                    </img>
+                </Link>
+                <Link to='/instamart'>
+                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b5c57bbf-df54-4dad-95d1-62e3a7a8424d_IM3BU.png' alt='Instamart'>
+                    </img>
+                </Link>
+                <Link to='/dineout'>
+                    <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b6d9b7ab-91c7-4f72-9bf2-fcd4ceec3537_DO3BU.png' alt='Dineout'>
+                    </img>
+                </Link>
             </div>
         </div>
 

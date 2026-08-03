@@ -1,26 +1,38 @@
 import './App.css'
-import BestFood from './components/bestFood'
-import { CitiesFoodDelivery } from './components/citiesFoodDelivery'
-import { CitiesGroceryDelivery } from './components/citiesGroceryDelivery'
-import CitiesWithDeliveryReuasable from './components/citiesWithDeliveryReuasable'
-import DiscoverRestaurants from './components/discoverRestaurants'
-import GetTheApp from './components/getTheApp'
-import HeroSection from './components/heroSection'
-import ShopGroceries from './components/shopGroceries'
-import Footer from './components/footer'
+import About from './components/AboutUs/About'
+import Home from './components/Home/Home'
+import { Routes, Route } from 'react-router-dom'
+import LoginPage from './components/LoginDrawer/LoginDrawer'
+import Restaurants from './components/Restaurants/Restaurants'
+import Dineout from './components/Dineout/Dineout'
+import Instamart from './components/Instamart/Instamart'
 
-
-  export default function App() {
+export default function App() {
   return (
     <>
-    <HeroSection/>
-    <BestFood/>
-    <ShopGroceries/>
-    <DiscoverRestaurants/>
-    <GetTheApp/>
-    <CitiesFoodDelivery/>
-    <CitiesGroceryDelivery/>
-    <Footer/>
+      <Routes>
+        <Route
+          path='/'
+          element={<Home />} />
+
+        <Route
+          path='/corporate'
+          element={<About />} />
+
+        <Route
+          path='/restaurants'
+          element={<Restaurants />} />
+
+        <Route
+          path='/instamart'
+          element={<Instamart />} />
+
+        <Route
+          path='/dineout'
+          element={<Dineout />} />
+
+      </Routes>
+      <Home />
     </>
   )
 }
