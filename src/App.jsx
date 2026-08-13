@@ -32,7 +32,6 @@ export default function App() {
           element={<Dineout />} />
 
       </Routes>
-      <Home />
     </>
   )
 }
