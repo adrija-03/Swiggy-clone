@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import LoginPage from '../LoginDrawer/LoginDrawer';
 import LoginDrawer from '../LoginDrawer/LoginDrawer';
 
 export default function HeroSection() {

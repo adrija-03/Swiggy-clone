@@ -18,7 +18,7 @@ function Home() {
             <DiscoverRestaurants />
             <GetTheApp />
             <CitiesFoodDelivery />
-            <CitiesGroceryDelivery />
+            {/* <CitiesGroceryDelivery /> */}
             <Footer />
         </div>
     )
