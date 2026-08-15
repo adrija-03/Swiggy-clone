@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import LoginDrawer from '../LoginDrawer/LoginDrawer';
+import LoginDrawer from '../LoginSection/LoginDrawer';
+import LoginSection from '../LoginSection/LoginSection';
 
 export default function HeroSection() {
 
@@ -38,7 +39,8 @@ export default function HeroSection() {
                             Sign up
                         </div>
                         {showLogin && (
-                            <LoginDrawer closeDrawer={() => setShowLogin(false)} />
+                            // <LoginDrawer closeDrawer={() => setShowLogin(false)} />
+                            <LoginSection/>
                         )}
                     </div>
                 </div>

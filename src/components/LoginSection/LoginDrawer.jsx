@@ -1,18 +1,20 @@
 import React from 'react'
 
-function SignUpDrawer({ closeDrawer }) {
+function LoginDrawer({ closeDrawer }) {
+
+  const changeSignUpPage = (e) => {
+    console.log(e.target.textContent)
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex justify-end text-[#282c3f]">
-      {/* Dim Backdrop */}
       <div
         className="fixed inset-0 bg-black/60 transition-opacity"
         onClick={closeDrawer}
       />
 
-      {/* Slide-out Panel */}
       <div className="relative z-10 h-full w-full max-w-[500px] bg-white p-8 sm:p-10 shadow-2xl flex flex-col justify-between overflow-y-auto">
         <div>
-          {/* Close Button */}
           <button
             onClick={closeDrawer}
             className="mb-6 text-gray-600 hover:text-black transition-colors"
@@ -33,8 +35,6 @@ function SignUpDrawer({ closeDrawer }) {
               />
             </svg>
           </button>
-
-          {/* Header Section */}
           <div className="flex justify-between items-start mb-8">
             <div>
               <h1 className="text-3xl font-bold tracking-tight text-[#282c3f]">
@@ -44,16 +44,15 @@ function SignUpDrawer({ closeDrawer }) {
                 <span className="text-gray-500">or </span>
                 <button
                   type="button"
+                  onClick={(e) => changeSignUpPage(e)}
                   className="text-[#ff5200] font-semibold hover:underline"
                 >
                   create an account
                 </button>
               </div>
-              {/* Swiggy's small dark accent line */}
               <div className="w-8 h-[2px] bg-black mt-4" />
             </div>
 
-            {/* Swiggy Food Illustration Graphic */}
             <img
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r"
               alt="Swiggy Login Graphic"
@@ -61,12 +60,10 @@ function SignUpDrawer({ closeDrawer }) {
             />
           </div>
 
-          {/* Form */}
           <form
             className="flex flex-col gap-4"
             onSubmit={(e) => e.preventDefault()}
           >
-            {/* Floating Label Input Box */}
             <div className="relative border border-gray-300 focus-within:border-black focus-within:shadow-sm transition-all rounded-sm">
               <input
                 type="tel"
@@ -82,7 +79,6 @@ function SignUpDrawer({ closeDrawer }) {
               </label>
             </div>
 
-            {/* Login CTA Button */}
             <button
               type="submit"
               className="mt-4 w-full bg-[#ff5200] text-white font-bold py-3.5 px-4 shadow-md hover:bg-[#e26e10] hover:shadow-lg transition-all uppercase tracking-wide text-sm"
@@ -91,7 +87,6 @@ function SignUpDrawer({ closeDrawer }) {
             </button>
           </form>
 
-          {/* Terms & Conditions Disclaimer */}
           <p className="mt-3 text-[11px] text-gray-500 leading-tight font-medium">
             By clicking on Login, I accept the{' '}
             <span className="text-gray-900 font-semibold cursor-pointer hover:underline">
@@ -108,4 +103,4 @@ function SignUpDrawer({ closeDrawer }) {
   )
 }
 
-export default SignUpDrawer
+export default LoginDrawer
