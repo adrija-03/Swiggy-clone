@@ -14,7 +14,7 @@ function SignUpDrawer({ closeDrawer, onSwitchToLogin }) {
   });
 
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.id]: e.target.value})
+    setUser({ ...user, [e.target.id]: e.target.value })
   }
   return (
     <DrawerShell closeDrawer={closeDrawer} policyText="creating an account">
@@ -52,12 +52,15 @@ function SignUpDrawer({ closeDrawer, onSwitchToLogin }) {
         <FloatingInput id="name" label="Name" type="text" value={user.name} onChange={handleChange} />
         <FloatingInput id="email" label="Email" type="email" value={user.email} onChange={handleChange} />
 
-        {referral && 
-        <FloatingInput id="referralCode" label="Referral code" type="text" value={user.referralCode} onChange={handleChange} />}
+        {referral &&
+          <FloatingInput id="referralCode" label="Referral code" type="text" value={user.referralCode} onChange={handleChange} />}
 
         <button
+          type='button'
           onClick={() => setReferral(prev => !prev)}
-          className='text-[#5d8ed5] cursor-pointer'>Have a referral code?</button>
+          className='text-[#5d8ed5] cursor-pointer'>
+          Have a referral code?
+        </button>
 
         <button
           type="submit"
