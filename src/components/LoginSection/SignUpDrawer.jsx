@@ -1,13 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
 
-function SignUpDrawer({ closeDrawer, onSwitchToSignup }) {
+function SignUpDrawer({ closeDrawer, onSwitchToLogin }) {
 
   const [referral, setReferral] = useState(false);
-
-  // function handleReferralSection () {
-
-  // }
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end text-[#282c3f]">
@@ -48,7 +44,7 @@ function SignUpDrawer({ closeDrawer, onSwitchToSignup }) {
                 <span className="text-gray-500">or </span>
                 <button
                   type="button"
-                  onClick={onSwitchToSignup}
+                  onClick={onSwitchToLogin}
                   className="text-[#ff5200] font-semibold hover:underline"
                 >
                   login to your account
