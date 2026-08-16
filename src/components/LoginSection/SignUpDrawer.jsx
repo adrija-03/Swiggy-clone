@@ -1,10 +1,13 @@
 import React from 'react'
+import { useState } from 'react';
 
-function SignUpDrawer({ closeDrawer }) {
+function SignUpDrawer({ closeDrawer, onSwitchToSignup }) {
 
-  const changeSignUpPage = (e) => {
-    console.log(e.target.textContent)
-  }
+  const [referral, setReferral] = useState(false);
+
+  // function handleReferralSection () {
+
+  // }
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end text-[#282c3f]">
@@ -45,10 +48,10 @@ function SignUpDrawer({ closeDrawer }) {
                 <span className="text-gray-500">or </span>
                 <button
                   type="button"
-                  onClick={(e) => changeSignUpPage(e)}
+                  onClick={onSwitchToSignup}
                   className="text-[#ff5200] font-semibold hover:underline"
                 >
-                  login t0 your account
+                  login to your account
                 </button>
               </div>
               <div className="w-8 h-[2px] bg-black mt-4" />
@@ -79,6 +82,53 @@ function SignUpDrawer({ closeDrawer }) {
                 Phone number
               </label>
             </div>
+            <div className="relative border border-gray-300 focus-within:border-black focus-within:shadow-sm transition-all rounded-sm">
+              <input
+                type="text"
+                id="name"
+                placeholder=" "
+                className="peer w-full px-4 pt-6 pb-2 text-base text-gray-900 bg-transparent outline-none font-medium"
+              />
+              <label
+                htmlFor="name"
+                className="absolute left-4 top-4 text-gray-400 text-base transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:text-xs peer-focus:text-gray-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+              >
+                Name
+              </label>
+            </div>
+            <div className="relative border border-gray-300 focus-within:border-black focus-within:shadow-sm transition-all rounded-sm">
+              <input
+                type="text"
+                id="email"
+                placeholder=" "
+                className="peer w-full px-4 pt-6 pb-2 text-base text-gray-900 bg-transparent outline-none font-medium"
+              />
+              <label
+                htmlFor="email"
+                className="absolute left-4 top-4 text-gray-400 text-base transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:text-xs peer-focus:text-gray-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+              >
+                Email
+              </label>
+            </div>
+            {referral && <div className="relative border border-gray-300 focus-within:border-black focus-within:shadow-sm transition-all rounded-sm">
+              <input
+                type="text"
+                id="referralCode"
+                placeholder=" "
+                className="peer w-full px-4 pt-6 pb-2 text-base text-gray-900 bg-transparent outline-none font-medium"
+              />
+              <label
+                htmlFor="code"
+                className="absolute left-4 top-4 text-gray-400 text-base transition-all duration-200 pointer-events-none peer-focus:top-2 peer-focus:text-xs peer-focus:text-gray-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-500"
+              >
+                Referral code
+              </label>
+            </div>}
+
+
+            <div 
+            onClick={() => setReferral(prev => !prev)}
+            className='text-[#5d8ed5] cursor-pointer'>Have a referral code?</div>
 
             <button
               type="submit"

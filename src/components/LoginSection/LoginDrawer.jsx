@@ -1,10 +1,6 @@
 import React from 'react'
 
-function LoginDrawer({ closeDrawer }) {
-
-  const changeSignUpPage = (e) => {
-    console.log(e.target.textContent)
-  }
+function LoginDrawer({ closeDrawer, onSwitchToSignup }) {
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end text-[#282c3f]">
@@ -44,7 +40,7 @@ function LoginDrawer({ closeDrawer }) {
                 <span className="text-gray-500">or </span>
                 <button
                   type="button"
-                  onClick={(e) => changeSignUpPage(e)}
+                  onClick={onSwitchToSignup}
                   className="text-[#ff5200] font-semibold hover:underline"
                 >
                   create an account

@@ -40,7 +40,7 @@ export default function HeroSection() {
                         </div>
                         {showLogin && (
                             // <LoginDrawer closeDrawer={() => setShowLogin(false)} />
-                            <LoginSection/>
+                            <LoginSection closeDrawer={() => setShowLogin(false)} />
                         )}
                     </div>
                 </div>

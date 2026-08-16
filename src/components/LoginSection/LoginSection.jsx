@@ -4,15 +4,12 @@ import SignUpDrawer from './SignUpDrawer'
 import { useState } from 'react';
 
 function LoginSection() {
-    const [signUp, setSignUp] = useState(false);
+    const [activeDrawer, setActiveDrawer] = useState('login');
 
-    // function showSignUpPage() {
-
-    // }
   return (
     <>
-    <LoginDrawer showSignUpPage={() => setSignUp(false)}/>
-    <SignUpDrawer showSignUpPage={() => setSignUp(true)}/>
+    {activeDrawer === 'login' && <LoginDrawer onSwitchToSignup={() => setActiveDrawer('signup')} />}
+    {activeDrawer === 'signup' && <SignUpDrawer onSwitchToSignup={() => setActiveDrawer('login')}/>}
     </>
   )
 }
