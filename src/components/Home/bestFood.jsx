@@ -1,33 +1,28 @@
-import React from 'react'
-
-const row1 = [
-    "Burger",
-    "Pizza",
-    "Cake",
-    "North Indian",
-    "Biryani",
-    "Rolls",
-    "Chinese",
-    "Momo",
-    "Dosa",
-    "Chinese",
-];
-
-const row2 = [
-    "Kebab",
-    "Shawarma",
-    "South Indian",
-    "Pastry",
-    "Paratha",
-    "Ice Cream",
-    "Pasta",
-    "Rasmalai",
-    "Pure Veg",
-    "Gulab Jamun",
-];
-
+import { useState, useEffect } from "react"
 
 const BestFood = () => {
+    const [foodCategories, setFoodCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/foodCategories")
+            .then((response) => {
+                if (!response.ok)
+                    throw new Error("Failed to fetch food categories");
+                return response.json();
+            })
+            .then((data) => setFoodCategories(data))
+            .catch((error) => setError(error.message))
+            .finally(() => setLoading(false));
+    }, [])
+
+    if (loading) return <div className="w-[80%] mx-auto mt-32">Loading...</div>;
+    if (error) return <div className="w-[80%] mx-auto mt-32">Error: {error}</div>;
+
+    const row1 = foodCategories.filter((element) => element.row === 1)
+    const row2 = foodCategories.filter((element) => element.row === 2)
+
     return (
         <div className='w-[80%] mx-auto'>
             <div className='flex justify-between items-center mt-32'>
@@ -63,17 +58,17 @@ const BestFood = () => {
                     </div>
                 </div>
             </div>
-            <div className="overflow-x-auto no-scrollbar">
+            <div className="overflow-x-auto scrollbar">
                 <div className="flex flex-col gap-6 min-w-max">
 
                     {/* Row 1 */}
                     <div className="flex flex-nowrap gap-6">
-                        {row1.map((item, index) => (
-                            <button key={index} className="shrink-0">
+                        {row1.map((item) => (
+                            <button key={item.id} className="shrink-0">
                                 <img
                                     className="w-36 h-auto"
-                                    src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/${item.replace(" ", "%20")}.png`}
-                                    alt={item}
+                                    src={item.image}
+                                    alt={item.name}
                                 />
                             </button>
                         ))}
@@ -81,12 +76,12 @@ const BestFood = () => {
 
                     {/* Row 2 */}
                     <div className="flex flex-nowrap gap-6">
-                        {row2.map((item, index) => (
-                            <button key={index} className="shrink-0">
+                        {row2.map((item) => (
+                            <button key={item.id} className="shrink-0">
                                 <img
                                     className="w-36 h-auto"
-                                    src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/${item.replace(" ", "%20")}.png`}
-                                    alt={item}
+                                    src={item.image}
+                                    alt={item.name}
                                 />
                             </button>
                         ))}
