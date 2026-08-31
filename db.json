@@ -172,5 +172,62 @@
       "link": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/CIW/2024/7/6/76a7104c-0f11-4182-aa51-0d48efc2be7f_aae098f9-aaff-4504-a222-bf13595d58cd",
       "name": "Biscuits and Cakes"
     }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "imageLink": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/12/11/7293a378-a88e-48cf-b451-da8d3ad31cb0_image2756e6ced814cb42a387a7ed400dfc19d9.JPG",
+      "restaurantName": "Haveli Dharampura",
+      "restaurantRatings": "4.1",
+      "foodType": "North Indian",
+      "foodOrigin": "Mughlai",
+      "approxAmount": "4000",
+      "location": "Chandni Chowk, Delhi",
+      "distance": "3.6"
+    },
+    {
+      "id": 2,
+      "imageLink": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/7/29/a5aba697-125e-4a72-b4bd-af748918e581_SwiggyDineout1080X7202c612ffceb9194372adfb1c18bbdce57e.PNG",
+      "restaurantName": "Wow! Momo",
+      "restaurantRatings": "4.5",
+      "foodType": "Chinese",
+      "foodOrigin": "Asian",
+      "approxAmount": "400",
+      "location": "IRCTC Food Plaza, Ajmeri Gate, Delhi",
+      "distance": "2"
+    },
+    {
+      "id": 3,
+      "imageLink": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1667811837/univpvf3s8fd2asohxtv.jpg",
+      "restaurantName": "Oval Bean Cafe",
+      "restaurantRatings": "4.3",
+      "foodType": "Fast Food",
+      "foodOrigin": "Beverages",
+      "approxAmount": "600",
+      "location": "Connaught Place, Delhi",
+      "distance": "0.3"
+    },
+    {
+      "id": 4,
+      "imageLink": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/11/27/23400271-2db1-4640-af7d-d47569365c75_image132bd1ab082dc4617a0b77c7c10dfc1af.JPG",
+      "restaurantName": "Dyve",
+      "restaurantRatings": "4.5",
+      "foodType": "North Indian",
+      "foodOrigin": "Chinese",
+      "approxAmount": "1200",
+      "location": "Preet Vihar, Delhi",
+      "distance": "9.1"
+    },
+    {
+      "id": 5,
+      "imageLink": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1705324002/614ce1258b980d7aad88fdaad47882ef.jpg",
+      "restaurantName": "F Bar & Lounge",
+      "restaurantRatings": "4.0",
+      "foodType": "Chinese",
+      "foodOrigin": "North Indian",
+      "approxAmount": "2700",
+      "location": "Rajinder Nagar, Delhi",
+      "distance": "1.4"
+    }
   ]
 }

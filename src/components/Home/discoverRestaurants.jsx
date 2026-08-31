@@ -1,66 +1,30 @@
-import React from 'react'
-import ScrollableItems from './scrollableItems'
-
-const row1 = [
-
-    {
-        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/12/11/7293a378-a88e-48cf-b451-da8d3ad31cb0_image2756e6ced814cb42a387a7ed400dfc19d9.JPG",
-        restaurantName: "Haveli Dharampura",
-        restaurantRatings: "4.1",
-        foodType: "North Indian",
-        foodOrigin: "Mughlai",
-        approxAmount: "4000",
-        location: "Chandni Chowk, Delhi",
-        distance: "3.6",
-
-    },
-    {
-        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/7/29/a5aba697-125e-4a72-b4bd-af748918e581_SwiggyDineout1080X7202c612ffceb9194372adfb1c18bbdce57e.PNG",
-        restaurantName: "Wow! Momo",
-        restaurantRatings: "4.5",
-        foodType: "Chinese",
-        foodOrigin: "Asian",
-        approxAmount: "400",
-        location: "IRCTC Food Plaza, Ajmeri Gate, Delhi",
-        distance: "2",
-    },
-    {
-        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1667811837/univpvf3s8fd2asohxtv.jpg",
-        restaurantName: "Oval Bean Cafe",
-        restaurantRatings: "4.3",
-        foodType: "Fast Food",
-        foodOrigin: "Beverages",
-        approxAmount: "600",
-        location: "Connaught Place, Delhi",
-        distance: "0.3",
-    },
-    {
-        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/11/27/23400271-2db1-4640-af7d-d47569365c75_image132bd1ab082dc4617a0b77c7c10dfc1af.JPG",
-        restaurantName: "Dyve",
-        restaurantRatings: "4.5",
-        foodType: "North Indian",
-        foodOrigin: "Chinese",
-        approxAmount: "1200",
-        location: "Preet Vihar, Delhi",
-        distance: "9.1",
-    },
-    {
-        imageLink: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1705324002/614ce1258b980d7aad88fdaad47882ef.jpg",
-        restaurantName: "F Bar & Lounge",
-        restaurantRatings: "4.0",
-        foodType: "Chinese",
-        foodOrigin: "North Indian",
-        approxAmount: "2700",
-        location: "Rajinder Nagar, Delhi",
-        distance: "1.4",
-    }
-]
+import { useState, useEffect } from 'react'
 
 const DiscoverRestaurants = () => {
+    const [restaurant, setRestaurant] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/restaurants")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch restaurants")
+                }
+                return response.json();
+            })
+            .then((data) => setRestaurant(data))
+            .catch((error) => setError(error.message))
+            .finally(() => setLoading(false))
+    })
+
+    if (loading) return <div className="w-[80%] mx-auto mt-32">Loading...</div>;
+    if (error) return <div className="w-[80%] mx-auto mt-32">Error: {error}</div>;
+
     return (
         <div className='w-[80%] mx-auto'>
-            <div className='flex justify-between items-center mt-32'>
-                <div className='text-2xl font-bold tracking-tight '>Shop groceries on Instamart</div>
+            <div className='flex justify-between items-center mt-32 mb-8'>
+                <div className='text-2xl font-bold tracking-tight '>Discover best restaurants on Dineout</div>
                 <div className='flex'>
                     <div className="rounded-full h-[34px] px-2 pt-2 pb-1 bg-[rgba(2,6,12,0.15)] mr-2">
                         <svg
@@ -92,15 +56,15 @@ const DiscoverRestaurants = () => {
                     </div>
                 </div>
             </div>
-            <div className="overflow-x-auto no-scrollbar">
+            <div className="overflow-x-auto scrollbar">
                 <div className="flex flex-col gap-6 min-w-max">
                     <div className="flex flex-nowrap gap-4">
-                        {row1.map((item, index) => (
-                            <div key={index} className="shrink-0 rounded-2xl">
+                        {restaurant.map((item) => (
+                            <div key={item.id} className="shrink-0 rounded-2xl">
                                 <img
                                     className="w-36 h-auto min-w-[328px] rounded-tl-2xl rounded-tr-2xl"
                                     src={item.imageLink}
-                                    alt={item}
+                                    alt={item.restaurantName}
                                 />
                                 <div className='flex justify-between relative bottom-8 px-3 font-bold text-[20px] leading-[24px] tracking-[-0.5px] text-white'>
                                     <div>{item.restaurantName}</div>
