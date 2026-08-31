@@ -6,7 +6,7 @@ import CitiesWithDeliveryReuasable from './citiesWithDeliveryReuasable'
 import DiscoverRestaurants from './discoverRestaurants'
 import GetTheApp from './getTheApp'
 import HeroSection from './HeroSection'
-import ShopGroceries from './shopGroceries'
+import ShopGroceries from './ShopGroceries'
 import Footer from './footer'
 
 function Home() {
