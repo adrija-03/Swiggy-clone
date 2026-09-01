@@ -5,6 +5,8 @@ const BestFood = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const scrollRef = useRef(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:5000/foodCategories")
@@ -18,9 +20,22 @@ const BestFood = () => {
             .finally(() => setLoading(false));
     }, [])
 
+    const checkScrollPosition = () => {
+        const el = scrollRef.current;
+        if (!el)
+            return;
+
+        setCanScrollLeft(el.scrollLeft > 0);
+        setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1)
+    }
+
+    useEffect(() => {
+        checkScrollPosition();
+    }, [foodCategories])
+
     const scroll = (direction) => {
         if (scrollRef.current) {
-            const scrollAmount = 300; // px per click, tweak as needed
+            const scrollAmount = scrollRef.current.clientWidth;
             scrollRef.current.scrollBy({
                 left: direction === "left" ? -scrollAmount : scrollAmount,
                 behavior: "smooth",
@@ -39,9 +54,13 @@ const BestFood = () => {
             <div className='flex justify-between items-center mt-32'>
                 <div className='text-2xl font-bold tracking-tight '>Order our best food options</div>
                 <div className='flex'>
-                    <button 
-                    onClick={() => scroll("left")}
-                    className="rounded-full h-[34px] px-2 pt-2 pb-1 bg-[rgba(2,6,12,0.15)] mr-2">
+                    <button
+                        onClick={() => scroll("left")}
+                        disabled={!canScrollLeft}
+                        className={`rounded-full h-[34px] px-2 pt-2 pb-1 mr-2 transition-opacity ${canScrollLeft
+                            ? "bg-[rgba(2,6,12,0.15)] cursor-pointer"
+                            : "bg-[rgba(2,6,12,0.05)] cursor-not-allowed opacity-40"
+                            }`}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -55,9 +74,13 @@ const BestFood = () => {
                             />
                         </svg>
                     </button>
-                    <button 
-                    onClick={() => scroll("right")}
-                    className="rounded-full h-[34px] px-2 pt-2 pb-1 bg-[rgba(2,6,12,0.15)]">
+                    <button
+                        onClick={() => scroll("right")}
+                        disabled={!canScrollRight}
+                        className={`rounded-full h-[34px] px-2 pt-2 pb-1 transition-opacity ${canScrollRight
+                            ? "bg-[rgba(2,6,12,0.15)] cursor-pointer"
+                            : "bg-[rgba(2,6,12,0.05)] cursor-not-allowed opacity-40"
+                            }`}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -73,7 +96,7 @@ const BestFood = () => {
                     </button>
                 </div>
             </div>
-            <div ref={scrollRef} className="overflow-x-auto no-scrollbar">
+            <div ref={scrollRef} onScroll={checkScrollPosition} className="overflow-x-auto no-scrollbar">
                 <div className="flex flex-col gap-6 min-w-max">
 
                     {/* Row 1 */}
