@@ -4,6 +4,7 @@ const BestFood = () => {
     const [foodCategories, setFoodCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         fetch("http://localhost:5000/foodCategories")
@@ -17,6 +18,16 @@ const BestFood = () => {
             .finally(() => setLoading(false));
     }, [])
 
+    const scroll = (direction) => {
+        if (scrollRef.current) {
+            const scrollAmount = 300; // px per click, tweak as needed
+            scrollRef.current.scrollBy({
+                left: direction === "left" ? -scrollAmount : scrollAmount,
+                behavior: "smooth",
+            });
+        }
+    };
+
     if (loading) return <div className="w-[80%] mx-auto mt-32">Loading...</div>;
     if (error) return <div className="w-[80%] mx-auto mt-32">Error: {error}</div>;
 
@@ -28,7 +39,9 @@ const BestFood = () => {
             <div className='flex justify-between items-center mt-32'>
                 <div className='text-2xl font-bold tracking-tight '>Order our best food options</div>
                 <div className='flex'>
-                    <div className="rounded-full h-[34px] px-2 pt-2 pb-1 bg-[rgba(2,6,12,0.15)] mr-2">
+                    <button 
+                    onClick={() => scroll("left")}
+                    className="rounded-full h-[34px] px-2 pt-2 pb-1 bg-[rgba(2,6,12,0.15)] mr-2">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -41,8 +54,10 @@ const BestFood = () => {
                                 fill="currentColor"
                             />
                         </svg>
-                    </div>
-                    <div className="rounded-full h-[34px] px-2 pt-2 pb-1 bg-[rgba(2,6,12,0.15)]">
+                    </button>
+                    <button 
+                    onClick={() => scroll("right")}
+                    className="rounded-full h-[34px] px-2 pt-2 pb-1 bg-[rgba(2,6,12,0.15)]">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -55,10 +70,10 @@ const BestFood = () => {
                                 fill="currentColor"
                             />
                         </svg>
-                    </div>
+                    </button>
                 </div>
             </div>
-            <div className="overflow-x-auto scrollbar">
+            <div ref={scrollRef} className="overflow-x-auto no-scrollbar">
                 <div className="flex flex-col gap-6 min-w-max">
 
                     {/* Row 1 */}
