@@ -96,7 +96,10 @@ const BestFood = () => {
                     </button>
                 </div>
             </div>
-            <div ref={scrollRef} onScroll={checkScrollPosition} className="overflow-x-auto no-scrollbar">
+            <div
+                ref={scrollRef}
+                onScroll={checkScrollPosition}
+                className="overflow-x-auto no-scrollbar scroll-smooth">
                 <div className="flex flex-col gap-6 min-w-max">
 
                     {/* Row 1 */}

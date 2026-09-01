@@ -8,15 +8,15 @@ const ShopGroceries = () => {
 
     useEffect(() => {
         fetch("http://localhost:5000/grocery")
-        .then((response) => {
-            if(!response.ok){
-                throw new Error("Failed to fetch grocery")
-            }
-            return response.json();
-        })
-        .then((data) => setGrocery(data))
-        .catch((error) => setError(error.message))
-        .finally(() => setLoading(false));
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch grocery")
+                }
+                return response.json();
+            })
+            .then((data) => setGrocery(data))
+            .catch((error) => setError(error.message))
+            .finally(() => setLoading(false));
     }, [])
 
     if (loading) return <div className="w-[80%] mx-auto mt-32">Loading...</div>;
@@ -60,7 +60,7 @@ const ShopGroceries = () => {
             <div className="overflow-x-auto scrollbar mt-3">
                 <div className="flex flex-col gap-6 min-w-max">
                     <ScrollableItems
-                    list = {grocery}/>
+                        list={grocery} />
                 </div>
             </div>
         </div>
